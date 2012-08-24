@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="/Scripts/jquery.signalR-0.5.3.min.js"></script>
+<h2>Connected Clients <span id="clientConnectionCount"></span></h2>
+
+<script type="text/javascript">
+    var x = 0; // because of jslist bug
+    /*global $ */
+    "use strict";
+    
+    $(function() {
+        var connection = $.connection("/echo");
+
+        connection.received(function(data) {
+            $("#clientConnectionCount").html(data);
+        });
+
+        connection.start();
+    });
+</script>
