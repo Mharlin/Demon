@@ -1,23 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Default";
+    ViewBag.Title = "Connection Counter and Server Time";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<h2>Current server time: <span id="clientConnectionCount"></span></h2>
+<h2>Connected Clients (using Hubs): <span id="clientConnectionCountHubs"></span></h2>
+
 <script src="/Scripts/jquery.signalR-0.5.3.min.js"></script>
-<h2>Connected Clients <span id="clientConnectionCount"></span></h2>
-
+<script src="/signalr/hubs"></script>
 <script type="text/javascript">
-    var x = 0; // because of jslist bug
-    /*global $ */
-    "use strict";
-    
-    $(function() {
-        var connection = $.connection("/echo");
+    function startListeningToServerClock() {
+        var connection = $.connection("/clock");
 
-        connection.received(function(data) {
+        connection.received(function (data) {
             $("#clientConnectionCount").html(data);
         });
-
         connection.start();
+    }
+    
+    function startListeningToServerCount() {
+        var connectionHub = $.connection.connectionCounterHub;
+
+        connectionHub.updateConnectionCount = function (count) {
+            $("#clientConnectionCountHubs").html(count); //html("data update" + count);
+        };
+
+        $.connection.hub.start();
+    }
+    
+    $(function() {
+        startListeningToServerClock();
+
+        startListeningToServerCount();
     });
 </script>

@@ -14,7 +14,7 @@ namespace MvcApplication1
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.MapConnection<ConnectionCounter>("echo", "echo/{*operation}");
+            routes.MapConnection<Clock>("clock", "clock/{*operation}");
 
             routes.MapRoute(
                 name: "Default",
