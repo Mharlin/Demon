@@ -3,8 +3,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; ;
 }
 
+<div id="shape" style="height: 100px; width: 200px; border: 2px; border-style: solid; border-color: black;"></div>
+<script src="~/Scripts/jquery-ui-1.8.20.js"></script>
 <script src="/Scripts/jquery.signalR-0.5.3.min.js"></script>
 <script src="/signalr/hubs"></script>
 <script type="text/javascript">
-    
+    $(function() {
+        var shapeHub = $.connection.moveShapeHub;
+        var shape = $("#shape");
+        
+        shapeHub.shapeMoved = function (connectionId, x, y) {
+            if ($.connection.hub.id !== connectionId) {
+                shape.css({ left: x, top: y });
+            }
+        };
+
+        $.connection.hub.start().done(function () {
+            shape.draggable({
+                drag: function() {
+                    shapeHub.moveShape(this.offsetLeft, this.offsetTop || 0);
+                } 
+            });
+        });
+    });
 </script>

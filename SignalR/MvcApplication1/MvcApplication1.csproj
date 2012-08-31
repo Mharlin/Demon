@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Hubs\Clock.cs" />
     <Compile Include="Hubs\ConnectionCounterHub.cs" />
+    <Compile Include="Hubs\MoveShapeHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
