@@ -1,0 +1,36 @@
+@{
+	ViewBag.Title = "Bids";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<h1>Bids for: <span>Lego auction</span></h1>
+
+	<div class="row">
+		<ul>
+			<li>
+				<p>
+					Bidder: <span>Fredrik</span>
+					<br />
+					Amount: <span>50</span>
+				</p>
+			</li>
+			<li>
+				<p>
+					Bidder: <span>Magnus</span>
+					<br />
+					Amount: <span>55</span>
+				</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="row">
+		<h3>Place bid</h3>
+		<span class="span2">
+			<input type="text" class="input-small" placeholder="Bidder" />
+			<input type="text" class="input-small" placeholder="Amount" />
+			<button class="btn btn-primary">Place bid</button>
+		</span>
+	</div>
+</div>
