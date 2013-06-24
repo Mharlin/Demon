@@ -33,7 +33,7 @@ namespace ConsoleApplication1
             //new RxOperations().AwaitObservable();
             //new RxOperations().ToAsync();
             //new RxOperations().LoopAsync();
-            new RxOperations().CombineSources();
+            //new RxOperations().CombineSources();
 
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
