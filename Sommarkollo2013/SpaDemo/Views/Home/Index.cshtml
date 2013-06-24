@@ -1,24 +1,21 @@
-﻿
-<div class="container">
+﻿<div class="container">
 	<h1>Auctions</h1>
-	<div class="row well">
-		<a href="~/Home/Auction/1"><h3 class="span12">Lego auction</h3></a>
-		<span class="span3">
-			<img src="~/Images/lego.jpg" width="50" height="50"/>
-		</span>
-		<b class="span1">Seller:</b>
-		<b class="span3">Kalle</b>
-		<div class="span10">The best lego ever made</div>
+	<div data-bind="foreach: auctions">
+		<div class="row well">
+			<a data-bind="attr: { href: url }">
+				<h3 class="span12" data-bind="text: title">Lego auction</h3>
+			</a>
+			<span class="span3">
+				<img data-bind="attr: { src: image }" width="50" height="50" />
+			</span>
+			<b class="span1">Seller:</b>
+			<b class="span3" data-bind="text: seller">Kalle</b>
+			<div class="span10" data-bind="text: description">The best lego ever made</div>
+		</div>
+		<hr />
 	</div>
-	<hr />
-	<div class="row well">
-		<h3 class="span12">Barbie auction</h3>
-		<span class="span3">
-			<img src="~/Images/barbie.jpg" width="50" height="50"/>
-		</span>
-		<b class="span1">Seller:</b>
-		<b class="span3">Stina</b>
-		<div class="span10">Cute barbies in in mint condition</div>
-	</div>
-
 </div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ViewModels/Auction.js")
+}
