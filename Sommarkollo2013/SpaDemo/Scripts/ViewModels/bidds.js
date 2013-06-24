@@ -1,4 +1,8 @@
-﻿var Bid = function (amount, bidder) {
+﻿/// <reference path="../jquery.signalR-1.1.2.js" />
+/// <reference path="../knockout-2.2.0.js" />
+
+
+var Bid = function (amount, bidder) {
 	this.amount = ko.observable(amount);
 	this.bidder = ko.observable(bidder);
 };
@@ -6,13 +10,21 @@
 var BidsViewModel = function (data) {
 	var self = this;
 	ko.mapping.fromJS(data, {}, self);
+	var auction = $.connection.auctionHub;
 
-	//self.bids = ko.observableArray([]);
+	auction.client.bidAdded = function (bidder, amount) {
+		self.bids.push(new Bid(amount, bidder));
+	};
+
 	self.newBidAmount = ko.observable();
 	self.newBidder = ko.observable();
 	self.addBid = function () {
-		self.bids.push(new Bid(self.newBidAmount(), self.newBidder()));
+		auction.server.addBid(self.newBidder(), self.newBidAmount());
 	};
+
+	$.connection.hub.start().done(function() {
+		auction.server.addBid("auction started", 0);
+	});
 };
 
 $(document).ready(function () {
