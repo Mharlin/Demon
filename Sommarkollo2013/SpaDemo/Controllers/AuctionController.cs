@@ -7,71 +7,79 @@ namespace SpaDemo.Controllers
 {
 	public class AuctionController : ApiController
 	{
-		public List<Auction> Get()
+		public auctionList Get()
 		{
-			return new List<Auction>
+			return new auctionList
 					   {
-						   new Auction
+						   auctions = new List<auction>
 							   {
-								   Description = "The best lego ever made",
-								   Image = "~/Images/lego.jpg",
-								   Seller = "Kalle",
-								   Title = "Lego auction",
-								   Url = "~/Home/Auction/1"
-							   },
-						   new Auction
-							   {
-								   Description = "Cute barbies in in mint condition",
-								   Image = "~/Images/barbie.jpg",
-								   Seller = "Stina",
-								   Title = "Barbie auction",
-								   Url = "~/Home/Auction/2"
+								   new auction
+									   {
+										   description = "The best lego ever made",
+										   image = "Images/lego.jpg",
+										   seller = "Kalle",
+										   title = "Lego auction",
+										   url = "Home/Auction/1"
+									   },
+								   new auction
+									   {
+										   description = "Cute barbies in mint condition",
+										   image = "Images/barbie.jpg",
+										   seller = "Stina",
+										   title = "Barbie auction",
+										   url = "Home/Auction/2"
+									   }
 							   }
 					   };
 		}
 
-		public Bidding Get(int id)
+		public class auctionList
+		{
+			public List<auction> auctions { get; set; }
+		}
+
+		public bidding Get(int id)
 		{
 			if (id == 1)
 			{
-				return new Bidding
+				return new bidding
 						   {
-							   Title = "Lego auction",
-							   Bids = new List<Bid>
+							   title = "Lego auction",
+							   bids = new List<bid>
 										  {
-											  new Bid { Amount = 20, Bidder = "Fredrik" },
-											  new Bid { Amount = 30, Bidder = "Magnus" }
+											  new bid { Amount = 20, Bidder = "Fredrik" },
+											  new bid { Amount = 30, Bidder = "Magnus" }
 										  }
 						   };
 			}
 
-			return new Bidding
+			return new bidding
 					   {
-						   Title = "Barbie auction",
-						   Bids = new List<Bid>
+						   title = "Barbie auction",
+						   bids = new List<bid>
 										  {
-											  new Bid { Amount = 50, Bidder = "Kalle" },
-											  new Bid { Amount = 55, Bidder = "Magnus" }
+											  new bid { Amount = 50, Bidder = "Kalle" },
+											  new bid { Amount = 55, Bidder = "Magnus" }
 										  }
 					   };
 		}
 
-		public class Auction
+		public class auction
 		{
-			public string Url { get; set; }
-			public string Title { get; set; }
-			public string Description { get; set; }
-			public string Image { get; set; }
-			public string Seller { get; set; }
+			public string url { get; set; }
+			public string title { get; set; }
+			public string description { get; set; }
+			public string image { get; set; }
+			public string seller { get; set; }
 		}
 
-		public class Bidding
+		public class bidding
 		{
-			public string Title { get; set; }
-			public List<Bid> Bids { get; set; }
+			public string title { get; set; }
+			public List<bid> bids { get; set; }
 		}
 
-		public class Bid
+		public class bid
 		{
 			public int Amount { get; set; }
 			public string Bidder { get; set; }
