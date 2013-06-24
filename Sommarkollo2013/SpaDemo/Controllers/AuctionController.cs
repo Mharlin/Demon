@@ -33,11 +33,6 @@ namespace SpaDemo.Controllers
 					   };
 		}
 
-		public class auctionList
-		{
-			public List<auction> auctions { get; set; }
-		}
-
 		public bidding Get(int id)
 		{
 			if (id == 1)
@@ -47,8 +42,8 @@ namespace SpaDemo.Controllers
 							   title = "Lego auction",
 							   bids = new List<bid>
 										  {
-											  new bid { Amount = 20, Bidder = "Fredrik" },
-											  new bid { Amount = 30, Bidder = "Magnus" }
+											  new bid { amount = 20, bidder = "Fredrik" },
+											  new bid { amount = 30, bidder = "Magnus" }
 										  }
 						   };
 			}
@@ -58,10 +53,15 @@ namespace SpaDemo.Controllers
 						   title = "Barbie auction",
 						   bids = new List<bid>
 										  {
-											  new bid { Amount = 50, Bidder = "Kalle" },
-											  new bid { Amount = 55, Bidder = "Magnus" }
+											  new bid { amount = 50, bidder = "Kalle" },
+											  new bid { amount = 55, bidder = "Magnus" }
 										  }
 					   };
+		}
+
+		public class auctionList
+		{
+			public List<auction> auctions { get; set; }
 		}
 
 		public class auction
@@ -81,8 +81,8 @@ namespace SpaDemo.Controllers
 
 		public class bid
 		{
-			public int Amount { get; set; }
-			public string Bidder { get; set; }
+			public int amount { get; set; }
+			public string bidder { get; set; }
 		}
 	}
 }

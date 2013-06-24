@@ -8,18 +8,11 @@
 
 	<div class="row">
 		<ul>
-			<li>
+			<li data-bind="foreach: bids">
 				<p>
-					Bidder: <span>Fredrik</span>
+					Bidder: <span data-bind="text: bidder">Fredrik</span>
 					<br />
-					Amount: <span>50</span>
-				</p>
-			</li>
-			<li>
-				<p>
-					Bidder: <span>Magnus</span>
-					<br />
-					Amount: <span>55</span>
+					Amount: <span data-bind="text: amount">50</span>
 				</p>
 			</li>
 		</ul>
@@ -28,9 +21,14 @@
 	<div class="row">
 		<h3>Place bid</h3>
 		<span class="span2">
-			<input type="text" class="input-small" placeholder="Bidder" />
-			<input type="text" class="input-small" placeholder="Amount" />
-			<button class="btn btn-primary">Place bid</button>
+			<input type="text" data-bind="value: newBidder" class="input-small" placeholder="Bidder" />
+			<input type="text" data-bind="value: newBidAmount" class="input-small" placeholder="Amount" />
+			<button class="btn btn-primary" data-bind="click: addBid">Place bid</button>
 		</span>
 	</div>
 </div>
+@*<div data-bind="text: ko.toJSON($root, null, 2)"></div>*@
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ViewModels/bidds.js")
+}
