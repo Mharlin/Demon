@@ -22,7 +22,8 @@ var BidsViewModel = function (data) {
 		auction.server.addBid(self.newBidder(), self.newBidAmount());
 	};
 
-	$.connection.hub.start().done(function() {
+	//$.connection.hub.start({ transport: 'longPolling' }).done(function () {
+	$.connection.hub.start().done(function () {
 		auction.server.addBid("auction started", 0);
 	});
 };
