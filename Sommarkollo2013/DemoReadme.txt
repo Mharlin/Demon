@@ -97,3 +97,12 @@ Steg 3:
 	update Views/Shared/_Layout.cshtml
 			@Scripts.Render("~/Scripts/jquery.signalR-1.1.2.js")
 			<script src="~/signalr/hubs"></script>
+
+Steg4:
+	Installera glimpse och glimpse knockout
+	Visa timeline, views och execution
+	Visa firebug
+		visa hur signalR switchar till websockets
+	Installera och visa Elmah
+		slå in en adress som inte finns/skicka in bokstäver till en funktion som ska ta emot siffror
+
