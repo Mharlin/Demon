@@ -106,3 +106,10 @@ Steg4:
 	Installera och visa Elmah
 		slå in en adress som inte finns/skicka in bokstäver till en funktion som ska ta emot siffror
 
+Steg 5:
+	Installera Jasmine
+	Om SignalR anslutningen ligger i vymodellen flytta ut den till document.ready
+	Lägg till en enableBindning på addBid knappen: enable: submitButtonEnabled
+	Skriv testet, visa i R# testrunner
+	Från Notepad++ ta fram htmlsidan för jasmine testerna, visa debug med FF
+

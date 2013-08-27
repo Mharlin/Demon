@@ -42,8 +42,8 @@ namespace SpaDemo.Controllers
 							   title = "Lego auction",
 							   bids = new List<bid>
 										  {
-											  new bid { amount = 20, bidder = "Fredrik" },
-											  new bid { amount = 30, bidder = "Magnus" }
+											  //new bid { amount = 20, bidder = "Fredrik" },
+											  //new bid { amount = 30, bidder = "Magnus" }
 										  }
 						   };
 			}
@@ -53,8 +53,8 @@ namespace SpaDemo.Controllers
 						   title = "Barbie auction",
 						   bids = new List<bid>
 										  {
-											  new bid { amount = 50, bidder = "Kalle" },
-											  new bid { amount = 55, bidder = "Magnus" }
+											  //new bid { amount = 50, bidder = "Kalle" },
+											  //new bid { amount = 55, bidder = "Magnus" }
 										  }
 					   };
 		}

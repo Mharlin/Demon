@@ -8,7 +8,7 @@
 
 	<div class="row">
 		<ul>
-			<li data-bind="foreach: bids">
+			<li data-bind="foreach: bidds">
 				<p>
 					Bidder: <span data-bind="text: bidder">Fredrik</span>
 					<br />
@@ -23,7 +23,7 @@
 		<span class="span2">
 			<input type="text" data-bind="value: newBidder" class="input-small" placeholder="Bidder" />
 			<input type="text" data-bind="value: newBidAmount" class="input-small" placeholder="Amount" />
-			<button class="btn btn-primary" data-bind="click: addBid">Place bid</button>
+			<button class="btn btn-primary" data-bind="click: addBid, enable: submitButtonEnabled">Place bid</button>
 		</span>
 	</div>
 </div>
