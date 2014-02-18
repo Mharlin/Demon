@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
-using System.Reactive.Concurrency;
-using System.Text;
 
 namespace ConsoleApplication1
 {
@@ -32,7 +29,7 @@ namespace ConsoleApplication1
 
             //new RxOperations().AwaitObservable();
             //new RxOperations().ToAsync();
-            //new RxOperations().LoopAsync();
+            //new RxOperations().LoopAsync().Wait();
             //new RxOperations().CombineSources();
 
             Console.WriteLine("Press any key to exit");
