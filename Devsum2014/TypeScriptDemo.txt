@@ -1,0 +1,55 @@
+Demo del 1 - Sort with Generics
+
+interface Brand {
+    name :string;
+}
+
+function sortByNameComplete<T extends Brand>(a: T[]) {
+    var result = a.slice(0);
+    result.sort((x, y) => x.name.localeCompare(y.name));
+    return result;
+}
+
+var brands = [
+    { name: "Apple", value: 100 },
+    { name: "Dell", value: 200 },
+    { name: "Microsoft", value: 300 }
+];
+
+var sorted = sortByNameComplete(brands);
+
+
+Demo del 2 - sort with any key and lambdas
+function sortByNameComplete<T extends Brand>(a: T[], keyOf: (item: T) => any) {
+    var result = a.slice(0);
+    result.sort((x, y) => {
+        var kx = keyOf(x);
+        var ky = keyOf(y);
+
+        return kx > ky ? 1 : kx < ky ? -1 : 0;
+    });
+    return result;
+}
+
+var sorted = sortByNameComplete(brands, x => x.name);
+
+
+Demo del 3, visa lib.d.ts från t.ex. stringify eller slice metoden
+	Mention definitely typed - type library on gitlab - community driven
+
+Demo del4
+	Skapa en personklass - med firstname: string, lastname: string
+		använd den -> skapa klassen från konstruktorn
+	Lägg till konstruktor
+		tilldela lokala variablerna
+		använd personklassen, var name = p.firstname + " " + p.lastname
+	Lägg till private fält - visa optional ?
+		yearOfBirth -> visa kompileringsfel vid användande
+	Lägg till default på lastname
+	Skapa Employee extends Person
+	Lägg till module runt klasserna
+	
+	
+	
+		
+	
