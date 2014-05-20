@@ -28,3 +28,5 @@ _ReSharper*/
 packages/
 
 *.DotSettings
+_Chutzpah.*
+

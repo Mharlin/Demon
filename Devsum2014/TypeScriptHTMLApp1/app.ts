@@ -8,7 +8,7 @@ interface IName {
     name: string;
 }
 
-function sortByName<T extends IName>(a: T[], keyOf: (item: T) => any) {
+function sortByKey<T extends IName>(a: T[], keyOf: (item: T) => any) {
     var result = a.slice(0);
     result.sort((x, y) => {
         var kx = keyOf(x);
@@ -19,7 +19,7 @@ function sortByName<T extends IName>(a: T[], keyOf: (item: T) => any) {
     return result;
 }
 
-var sorted = sortByName(brands, x => x.value);
-var name = sorted[0].name;
+var sorted = sortByKey(brands, x => x.value);
+var name1 = sorted[0];
 
-document.body.innerText = JSON.stringify(sorted, null, 4);
+//document.body.innerText = JSON.stringify(sorted, null, 4);
