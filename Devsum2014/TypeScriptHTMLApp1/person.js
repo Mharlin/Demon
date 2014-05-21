@@ -16,6 +16,10 @@ var Company;
         Person.prototype.getFullName = function () {
             return this.firstname + " " + this.lastname;
         };
+
+        Person.getMostCommonName = function () {
+            return "Anders Johansson";
+        };
         return Person;
     })();
     Company.Person = Person;

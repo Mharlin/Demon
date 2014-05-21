@@ -6,6 +6,10 @@
         getFullName(): string {
             return this.firstname + " " + this.lastname;
         }
+
+        static getMostCommonName(): string {
+            return "Anders Johansson";
+        }
     }
 
     export class Employee extends Person {
