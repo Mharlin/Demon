@@ -2,6 +2,10 @@
     export class Person {
         constructor(public firstname: string, public lastname: string = "Andersson", private age?: number) {
         }
+
+        getFullName(): string {
+            return this.firstname + " " + this.lastname;
+        }
     }
 
     export class Employee extends Person {

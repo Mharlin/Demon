@@ -13,6 +13,9 @@ var Company;
             this.lastname = lastname;
             this.age = age;
         }
+        Person.prototype.getFullName = function () {
+            return this.firstname + " " + this.lastname;
+        };
         return Person;
     })();
     Company.Person = Person;
