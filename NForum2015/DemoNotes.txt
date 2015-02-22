@@ -1,0 +1,54 @@
+Person conversion to F#
+type Person (name, age) =
+    member person.Name = name;
+    member person.Age = age;
+
+    override person.ToString() = 
+        sprintf "%s %d" name age
+
+let p = Person("Magnus", 35)
+
+
+
+type Persona = { Name: string; Age: int }
+    with 
+    override this.ToString() = sprintf "Name: %s Age: %d" this.Name this.Age 
+
+let pp : Persona = { Name = "Magnus"; Age = 35 }
+
+let pp2 = { pp with Age = 30}
+
+
+
+/Lists - int, string
+[ 1..20 ]
+[ 'a'.. 'z' ]
+
+//Pipelining
+let even x = x % 2 = 0
+let numbers = [1..20 ]
+
+numbers
+|> List .filter even
+//Annat exempel men inte lika tydligt
+List .filter even numbers
+
+//Null values - create Record type set to null
+type Record = { name: string }
+let a : Record = null
+
+
+//Discriminated unions
+let getCardSuit (c : Card) = match c with
+                             | Ace(suite) -> printfn "Suite: %A" suite
+                             | card -> printfn "Card: %A" card
+
+getCardSuit card2
+
+
+
+//Pattern matching lists, code to match head and tail
+    | first::rest -> printfn "list is %d elements long and contains %A" rest.Length rest
+
+
+
