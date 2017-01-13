@@ -10,7 +10,6 @@ let sumOfSquares num =
 let sum = sumOfSquares 10
 
 
-
 let sumOfSquaresShort num = 
     [1..num] 
     |> Seq.sumBy squares

@@ -7,6 +7,7 @@ open FSharp.Data
 type Simple = JsonProvider<""" { "name": "Magnus", "age":35 }  """>
 let simple = Simple.Parse(""" { "name": "Tove", "age": 4 } """ )
 
+
 //Type inferred
 type Numbers = JsonProvider<""" [1, 2, 3, 3.14] """>
 let nums = Numbers.Parse(""" [2, 1.2, 45.1, 98.2, 5] """)
@@ -40,6 +41,7 @@ for issue in topRecentlyUpdatedIssues do
 //World bank
 type WorldBank = WorldBankDataProvider<Asynchronous=true>
 let data = WorldBank.GetDataContext()
+
 let chart = 
     data.Countries.Sweden
         .Indicators.``Population, total``

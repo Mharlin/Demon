@@ -2,28 +2,14 @@
 {
     public class Person11
     {
-        private readonly string name;
-        private readonly int age;
-
         public Person11(string name, int age)
         {
-            this.name = name;
-            this.age = age;
+            Name = name;
+            Age = age;
         }
 
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get; }
 
-        public int Age
-        {
-            get { return age; }
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0} {1}", name, age);
-        }
+        public int Age { get; }
     }
 }

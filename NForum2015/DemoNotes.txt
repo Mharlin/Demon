@@ -1,4 +1,6 @@
-Person conversion to F#
+1. Slides
+
+2. Person conversion to F#
 type Person (name, age) =
     member person.Name = name;
     member person.Age = age;
@@ -20,7 +22,7 @@ let pp2 = { pp with Age = 30}
 
 
 
-/Lists - int, string
+//Lists - int, string
 [ 1..20 ]
 [ 'a'.. 'z' ]
 
@@ -29,7 +31,9 @@ let even x = x % 2 = 0
 let numbers = [1..20 ]
 
 numbers
-|> List .filter even
+|> List.filter even
+|> List.sum
+
 //Annat exempel men inte lika tydligt
 List .filter even numbers
 

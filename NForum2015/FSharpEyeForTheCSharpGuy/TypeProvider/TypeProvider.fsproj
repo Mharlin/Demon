@@ -57,6 +57,8 @@
     <Content Include="app.config" />
     <None Include="Scripts\load-references.fsx" />
     <None Include="Scripts\load-project.fsx" />
+    <None Include="Scripts\load-references-debug.fsx" />
+    <None Include="Scripts\load-project-debug.fsx" />
     <Compile Include="Person.fs" />
     <Compile Include="SimpleExamples.fs" />
     <Compile Include="Comparison.fs" />

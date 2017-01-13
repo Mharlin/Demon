@@ -1,11 +1,23 @@
-﻿namespace ClassLibrary1
+﻿using System;
+
+namespace ClassLibrary1
 {
     class Interop
     {
-        public void Test()
+        public static void Main(string[] args)
         {
-            var p = new Person1.Person("Magnus", 35);
-            var p1 = new Person1.Persona("Tove", 4);
+            Test();
+        }
+
+        public static void Test()
+        {
+            var p = new Person1.Person("Magnus", 36);
+            var personSameValues = new Person1.Person("Magnus", 36);
+            Console.WriteLine(p == personSameValues);
+
+            var p1 = new Person1.Persona("Tove", 5);
+            var personaSameValues = new Person1.Persona("Tove", 5);
+            Console.WriteLine(p1.GetHashCode() == personaSameValues.GetHashCode());
         }
     }
 }

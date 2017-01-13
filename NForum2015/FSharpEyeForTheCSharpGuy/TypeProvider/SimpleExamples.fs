@@ -1,20 +1,27 @@
 ﻿module SimpleExamples
 //open Person
 
-//Lists - int, string
-let a = ['a'..'z']
+let add x y = x + y
+
+let r1 = add 3 5
+
+
+let addWith5 = add 5 
+
+let r2 = addWith5 10
+
 
 //Pipelining - filter list with even numbers, and sum
 let even x = x % 2 = 0
 let numbers = [1..20]
 
-let aaaa = List.sum(List.filter even numbers)
+let aa = List.sum(List.filter even numbers)
 
 let filtered = 
     numbers
-    |> List.filter even
-    |> List.sum
-
+    |> Seq.filter even
+    |> Seq.sum
+    |> addWith5
 
 
 //Discriminated unions - Add match for RankCard
@@ -25,16 +32,35 @@ type Suit =
   | Diamonds
 
 type Card =
-  | Ace of Suit
-  | RankCard of int * Suit
-  | Jack of Suit
-  | Queen of Suit
-  | King of Suit
   | Joker
-//
+  | Ace of Suit
+  | King of Suit
+  | Queen of Suit
+  | Jack of Suit
+  | RankCard of int * Suit
+
 let card1 = Ace(Diamonds)
-//let card2 = RankCard(3, Spades)
-//let card3 = Joker
+let card2 = RankCard(3, Spades)
+let getValue card = match card with
+                    | RankCard(value, suit) -> value
+                    | _ -> 0
+
+let value = getValue card2
+
+
+
+
+//Pattern match type
+type Address = { Street: string; City: string }
+type Employee = { Name: string; Company: string; Address: Address }
+
+//let xx : Employee = null
+let m = { Name = "Magnus"; Company = "Squeed"; Address = { Street = "Grönsakstorget"; City = "Göteborg" } }
+
+let newEmployee = { m with Name = "Sofia"}
+let { Company = company; Address = { City = city } } = m
+
+
 
 
 
@@ -45,7 +71,7 @@ let r = Rectangle (10, 20)
 
 
 //Pattern matching lists - Add head and tail 
-let aa, bb, cc = (1, 2, 3)
+let aaa, bb, cc = (1, 2, 3)
 let x::y::z = [1..4]
 
 let matchList l =
@@ -53,19 +79,11 @@ let matchList l =
     | [] -> printfn "the list is empty" 
     | [first] -> printfn "the list has one element %A " first 
     | [first; second] -> printfn "list is %A and %A" first second 
-    | first::rest -> printf "lengt of tail %d" rest.Length
+    | first::rest -> printf "lengt of tail %A" rest.Length
     | _ -> printfn "the list has more than two elements"
 
-matchList [1..2]
+matchList [1..5]
 
-
-//Pattern match type
-type Address = { Street: string; City: string }
-type Employee = { Name: string; Company: string; Address: Address }
-
-let m = { Name = "Magnus"; Company = "Squeed"; Address = { Street = "Grönsakstorget"; City = "Göteborg" } }
-
-let { Company = company; Address = { City = city } } = m
 
 
 //Null values - create Person type set to null, use GetEnvVar with "path" and "missing"
