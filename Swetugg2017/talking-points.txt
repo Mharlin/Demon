@@ -1,0 +1,109 @@
+
+Crunching big data in Azure with MBrace
+
+Vem är jag - intresse för F#
+	kort om fördelar med F#
+
+Vad kommer vi prata om idag
+	Vad är MBrace
+	Hur konfigurerar man MBrace-kluster
+	Cloud computation expression
+	CPU-intensivt arbete - räkna ut primtal
+	Bearbeta stora datamängder
+	Machine learning - läsa av handskrivna siffror
+	
+Vad är MBrace
+    Skalbar moln programmering för mycket data eller tunga beräkningar
+		Lagra data online så att man inte behöver ladda upp det flera gånger
+	Helt OpenSource
+    Jobba direkt från editorn - prototypning
+	Sätter upp alla nödvändiga delar av infrastrukturen med kod config
+
+Huvud del
+	Linq frågor som transformerar data går att parallellisera
+	
+	Kör igång cluster -- fortsätt med presentation medan det kör igång (tar ca 8 minuter att köra igång oavsett storlek)
+		visa config för cluster
+		Cluster varianter
+			Azure cluster with config in application
+			Azure cluster with BriskEngine
+	
+	Demo: Skriv enkelt cloud {} computation expression
+		async{} samma tänk som cloud{}
+			exempel
+				utan async: let helloWorld = 2 + 2
+				async: 
+					let helloWorldAsync = async { return 2 + 2 }
+					helloWorldAsync |> Async.RunSynchronously
+				cloud: 	Distribuerar ut kod till alla noder och får tillbaks resultatet
+					let helloWorldCloud = cloud { return 2 + 2 }
+					helloWorldCloud |> cluster.Run
+		visa Cloud.CreateRroccess och Cloud.Run
+			run blockerande anrop
+
+	C# mbrace kodexempel
+			
+	Cloud combinators
+		Parallel
+		Choice - returns when at least one function returns an Option with result
+		OfAsync -- ta existerande async flöde och gör om till Cloud flöde
+
+	Cloud flow
+		CloudFlow är en form a map reduce
+		
+	Demo: Räkna ut primtal -- CPU intensive
+		exekvera med Cloud.Run
+		visa Cloud.Parallel |> cluster.Run
+		
+	
+	Demo: Cloud flow
+		exempel på att anropa flera addresser samtidigt och räkna ut total content length
+			CloudFlow är en form a map reduce
+			Finns exempel i starter kit
+			https://github.com/alenadzenisenka/dotnetfringe/blob/master/azure/NetFringe/CloudFirstExample.fsx
+			video https://www.youtube.com/watch?list=PLwZVRWVJepJsJ79H3GfoPC7TxsvExdIB1&v=Ql8cEk9X1mo 2:20
+			
+	CloudStorage
+		Values
+		DataFiles
+		Queues
+			Reactive programming
+			När allt data inte finns tillgängligt från början
+		KeyValueStores
+	
+	Exception and fault tolerance
+		Exceptions fångas och kastas lokalt
+		Hantera exceptions på noderna
+		Om en nod krachar startas jobbet om - krach kan vara säkerhetspatchning
+	
+	CloudAtom för att dela värden mellan noderna
+		man kan ha den som räknare
+		
+	Demo: K-NearestNeigbor number recognosition
+		show local version
+		show cloud version
+		Gör loop med olika k-värden för att se vad som ger bäst resultat
+				30:55 in i Mathias crunching big data video...
+			[ for k in 1 .. 10 ->
+				cloud { ...} ]
+			|> Cloud.Parallel
+				
+
+Avslutning
+	Skalbart - power on demand
+	Bra för prototypning - engångsjobb
+	Går att bygga in i applikationer
+	Enkelt
+	
+Att göra:
+	Om det hinns med så plocka in mbrace loggan till start sliden
+	Screenshot från BriskEngine till cluster slide
+    Förbered demo
+		config för cluster
+		färdigt första manuellt demo för enkelt cloudd {} computation expression
+    Presentationer för insperation
+	    https://vimeo.com/131637364 - Crunching through big data with MBrace, Azure and F# - Mathias Brandewinder
+
+    
+    Se till att det lätt går att ställa om till att köra lokalt om det skulle vara nätproblem
+	
