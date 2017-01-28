@@ -55,7 +55,6 @@ Huvud del
 		exekvera med Cloud.Run
 		visa Cloud.Parallel |> cluster.Run
 		
-	
 	Demo: Cloud flow
 		exempel på att anropa flera addresser samtidigt och räkna ut total content length
 			CloudFlow är en form a map reduce
