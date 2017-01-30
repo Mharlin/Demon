@@ -341,6 +341,12 @@ cloud {
 
 ![training data](images/knn-images.png)
 
+---
+
+### Demo: K-means clustering
+
+![K-mean clustering](images/K-means_convergence.png)
+
 ***
 
 ### Slutsatser
@@ -353,6 +359,6 @@ cloud {
 ### Tack för att ny lyssnade!
 <br />
 
-- [github.com/Mharlin/Demon/Swetugg2017](https://github.com/Mharlin/Demon/Swetugg2017)
+- [github.com/Mharlin/Demon/tree/master/Swetugg2017](https://github.com/Mharlin/Demon/tree/master/Swetugg2017)
 - @MagnusHarlin
 *)

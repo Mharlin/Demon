@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>df4661cc-a8b7-418f-a977-51a4b6cbc803</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Demos</RootNamespace>
+    <AssemblyName>Demos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
+    <Name>HandsOnTutorial.FSharp</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '11.0'">
+      <PropertyGroup Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')">
+        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets</FSharpTargetsPath>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets')">
+        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  <Import Project="$(FSharpTargetsPath)" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="..\.paket\paket.targets" />
+  <ItemGroup>
+    <None Include="0-provision-azure-cluster.fsx" />
+    <None Include="1-hello-world.fsx" />
+    <None Include="2-cpu-intensive.fsx" />
+    <None Include="3-cloud-data-flow.fsx" />
+    <None Include="4-parallel-web-download.fsx" />
+    <None Include="5-knn-digit-recognition.fsx" />
+    <None Include="6-using-cloud-values.fsx" />
+    <None Include="7-using-cloud-data-files.fsx" />
+    <None Include="8-using-cloud-queues.fsx" />
+    <None Include="9-using-cloud-key-value-stores.fsx" />
+    <None Include="10-exceptions-and-fault-tolerance.fsx" />
+    <None Include="11-local-cloud-workflows.fsx" />
+    <None Include="Copy %282%29 of 200-cloud-parallel-web-download-example.fsx" />
+    <None Include="Copy %283%29 of 200-cloud-parallel-web-download-example.fsx" />
+    <None Include="Copy %284%29 of 200-cloud-parallel-web-download-example.fsx" />
+    <None Include="Copy of 200-cloud-parallel-web-download-example.fsx" />
+    <None Include="examples\200-image-processing-example.fsx" />
+    <None Include="examples\200-cloud-parallel-web-download-example.fsx" />
+    <None Include="examples\200-norvigs-spelling-corrector-example.fsx" />
+    <None Include="examples\200-kmeans-clustering-example.fsx" />
+    <None Include="examples\200-monte-carlo-pi-approximation-example.fsx" />
+    <None Include="examples\200-knn-digit-recognizer-example.fsx" />
+    <None Include="examples\200-launching-python-example.fsx" />
+    <None Include="examples\200-using-r-provider.fsx" />
+    <None Include="examples\200-wordcount-example.fsx" />
+    <None Include="examples\200-starting-a-web-server-example.fsx" />
+    <None Include="examples\200-house-data-analysis-example.fsx" />
+    <None Include="examples\400-stock-trading-analysis-example.fsx" />
+    <None Include="examples\400-stock-trading-analysis2-example.fsx" />
+    <None Include="going-further\200-managing-azure-clusters.fsx" />
+    <None Include="going-further\300-using-cloud-transactional-atoms.fsx" />
+    <None Include="going-further\300-distributed-multicore-parallel-search.fsx" />
+    <None Include="going-further\400-cloud-gotchas.fsx" />
+    <None Include="going-further\400-advanced-creating-new-serialized-things.fsx" />
+    <None Include="going-further\400-advanced-core-thread-pool.fsx" />
+    <None Include="going-further\400-advanced-core-internals.fsx" />
+    <None Include="perf-scripts\999-cloud-file-perf.fsx" />
+    <None Include="perf-scripts\999-task-create-perf.fsx" />
+    <None Include="perf-scripts\999-misc-cpu-perf.fsx" />
+    <None Include="lib\utils.fsx" />
+    <None Include="lib\sieve.fsx" />
+    <None Include="lib\mersenne.fsx" />
+    <None Include="lib\webserver.fsx" />
+    <None Include="lib\textfiles.fsx" />
+    <None Include="lib\dashboard.fsx" />
+    <None Include="paket.references" />
+    <None Include="ThespianCluster.fsx" />
+    <None Include="AzureCluster.fsx" />
+    <Content Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+</Project>
