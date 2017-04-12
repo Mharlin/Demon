@@ -30,3 +30,4 @@ packages/
 *.DotSettings
 _Chutzpah.*
 
+BetterTestingWorkshop/presentation/node_modules
