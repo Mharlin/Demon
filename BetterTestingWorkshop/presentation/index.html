@@ -24,10 +24,39 @@
     <body>
         <div class="reveal">
        	    <div class="slides">
-<section>
+<section data-background-color="#f15b4e">
    <h2>Better testing with less code using ScalaCheck</h2>
    <p>Magnus Härlin / <a href="https://github.com/Mharlin">github.com/Mharlin</a> / <a href="http://twitter.com/MagnusHarlin">@MagnusHarlin</a></p>
    <p><img style='border: 0px; box-shadow: none' src='images/speedledger_logo.png' alt='SpeedLedger logo' /></p>
+</section>
+
+<section>
+   <section data-markdown data-notes="^Note:">
+      <script type="text/template">
+         ## What is property based testing
+         
+         High-level specification of behavior that should hold for a range of data points
+         
+Note:
+         * The intent is clearly visible by what generator you use. If a generic generator is used there are no constraints
+      </script>
+   </section>
+
+   <section>
+      <h3>Unit tests for square root</h3>
+      <p class="fragment">Normal case - random positive number</p>
+      <p class="fragment">Edgecase - 0</p>
+      <p class="fragment">Edgecase - decimal numbers</p>
+      <p class="fragment">Only positive numbers</p>
+   </section>
+   <section data-markdown>
+      <script type="text/template">
+         ```scala
+         forAll (Gen.posNum[Double]) { 
+            (n: Double) => scala.math.sqrt(n*n) == n }
+         ```
+      </script>
+   </section>
 </section>
 
 <section>
@@ -67,42 +96,6 @@ Note:
    </section>
 </section>
 
-<section>
-   <section data-markdown data-notes="^Note:">
-      <script type="text/template">
-         ## How
-         
-         * Formal verification
-
-Note:
-         * Proving / disproving the correctness of an algorithm
-         * Impossible for turing complete languages
-      </script>
-   </section>
-
-   <section data-markdown data-notes="^Note:">
-      <script type="text/template">
-         ## Halting problem
-
-         _Given a description of an arbitrary computer program, 
-         decide whether the program finishes running or continues to run forever_
-      </script>
-   </section>
-
-   <section data-markdown data-notes="^Note:">
-      <script type="text/template">
-	 Alan Turing proved in 1936 that a **_general algorithm to solve_** the halting problem 
-	 **_for all possible program-input_** pairs **_cannot exist_**
-      </script>
-   </section>
-
-   <section data-markdown data-notes="^Note:">
-      <script type="text/template">
-         If our code **_passes_** the test on N **_randomly_** chosen examples (for example N = 100),
-         we might still get some good level of **_confidence_** in our implementation
-      </script>
-   </section>
-</section>
 
 <section>
    <section data-markdown data-notes="^Note:">
@@ -209,14 +202,29 @@ Note:
    </section>
 </section>
 
-<section data-markdown>
-   <script type="text/template" >
-      ## Exercise
-      ## Create specifications for a palindrome
-      ![Palindrome](./images/palindrome.png)
-      
-      [github.com/better-testing-workshop/exercise1-palindrome](https://github.com/better-testing-workshop/exercise1-palindrome)
-   </script>
+<section>
+   <section data-markdown>
+      <script type="text/template" >
+         ## Exercise
+         ## Create specifications for a palindrome
+         ![Palindrome](./images/palindrome.png)
+         
+         [https://github.com/Mharlin/better-testing-workshop/tree/master/exercise1-palindrome](https://github.com/Mharlin/better-testing-workshop/tree/master/exercise1-palindrome)
+      </script>
+   </section>
+
+   <section data-markdown>
+      <script type="text/template" >
+         ## Palindrome - when a word reads the same forwards and backwards
+         The generator should not be the same as the implementation
+            1. create palindrome gen with even and odd number of charachters
+               should only need one custom gen
+            2. write specs for checkReverse
+               check both positive and negative cases
+            3. find a bug in chekcIndices with same generator
+               fix the implementation
+      </script>
+   </section>
 </section>
 
 <section>
@@ -228,8 +236,6 @@ Note:
          <img src="./images/prisoners_dilemma.png" width="500px" />
 
          image by [iGEM2015 Team Tokyo_Tech](http://2015.igem.org/wiki/images/2/26/Tokyo_Tech_2121.png)
-
-         [github.com/Demon/BetterTestingWorkshop](https://github.com/Mharlin/Demon/BetterTestingWorkshop/)
       </script>
    </section>
 
@@ -270,6 +276,9 @@ Note:
          * Defection is always better for me
          * The best possible global outcome is both cooperate
          * The game is fair - same rules with swapped moves give the same result
+
+
+         [github.com/Mharlin/better-testing-workshop/tree/master/exercise2-prisoners-dilemma](https://github.com/Mharlin/better-testing-workshop/tree/master/exercise2-prisoners-dilemma)
       </script>
    </section>
 </section>

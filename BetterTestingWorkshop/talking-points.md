@@ -65,7 +65,6 @@
                 3. find a bug in chekcIndices with same generator
                     fix the implementation
 
-	- Shrinkers
         - Lab 
             Prisoners dilemma
 
@@ -84,8 +83,24 @@
 	- Questions that were not answerd during session
 
 
+reflektioner om presentationen:
+
 Installation av demomiljö som SBT om man inte har det
 förslag: docker image med sbt och scala installerat och repositoryt hämtat från git
 
-Inspiration:
-http://akimboyko.in.ua/presentations/property-based_testing.html#/ - Property based testing slides in F#	
+Vad är property based testing -- saknades
+square root som enhetstest jämfört med scalacheck test
+ta bort halting problemet
+ta bort allt som inte är moves och rules
+mer om varför Generatorer är viktigt och varför det kan vara svårt
+efter ca 10 min visa generatorn för reglerna
+
+Slängs in i konceptet snabbt mer om property based
+säga att sbt ska vara installerat i början så att folk kan ladda ner det
+Spela mer på prisoner's dilemma med humor
+länk till slides
+
+mer jämförelse med enhetstester tidigt speciellt med square root
+    kommer missa tester
+
+
